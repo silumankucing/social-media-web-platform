@@ -22,7 +22,7 @@
             android:id="@+id/profile_img"
             android:layout_width="315dp"
             android:layout_height="177dp"
-            tools:srcCompat="@drawable/_089" />
+            tools:srcCompat="@drawable/kuro" />
 
         <TextView
             android:id="@+id/profile_name"
