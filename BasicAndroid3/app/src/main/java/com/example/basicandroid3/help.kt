@@ -15,6 +15,8 @@ class help : AppCompatActivity(), View.OnClickListener {
         val phoneCallBtn: Button = findViewById(R.id.call_whatsapp)
         phoneCallBtn.setOnClickListener(this)
 
+        val backHomeBtn:Button = findViewById(R.id.help_back_home)
+        backHomeBtn.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -23,6 +25,11 @@ class help : AppCompatActivity(), View.OnClickListener {
                 val phoneNumber = "081210841382"
                 val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
                 startActivity(dialPhoneIntent)
+            }
+
+            R.id.help_back_home -> {
+                val moveIntentProfile = Intent(this@help, MainActivity::class.java)
+                startActivity(moveIntentProfile)
             }
         }
     }

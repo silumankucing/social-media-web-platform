@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val exploreBtn: Button = findViewById(R.id.explore_btn)
         exploreBtn.setOnClickListener(this)
+        val helpBtn: Button = findViewById(R.id.help_btn)
+        helpBtn.setOnClickListener(this)
 
         val dataName: TextView = findViewById(R.id.profile_name)
         val dataUname: TextView = findViewById(R.id.profile_uname)
@@ -35,6 +37,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.explore_btn -> {
                 val moveIntentProfile = Intent(this@MainActivity, setting::class.java)
+                startActivity(moveIntentProfile)
+            }
+            R.id.help_btn -> {
+                val moveIntentProfile = Intent(this@MainActivity, help::class.java)
                 startActivity(moveIntentProfile)
             }
         }

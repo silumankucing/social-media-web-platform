@@ -19,7 +19,7 @@ class setting : AppCompatActivity(), View.OnClickListener {
         val dataUname:EditText = findViewById(R.id.setting_uname_edit)
         dataUname.setOnClickListener(this)
 
-        val profileBtn: Button = findViewById(R.id.setting_save)
+        val profileBtn:Button = findViewById(R.id.setting_save)
         profileBtn.setOnClickListener(this)
 
         val data_name = dataName.text.toString()

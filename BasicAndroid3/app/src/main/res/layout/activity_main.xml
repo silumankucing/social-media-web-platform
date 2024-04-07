@@ -60,16 +60,17 @@
             android:layout_height="wrap_content"
             android:text="Following" />
 
-        <com.google.android.material.navigation.NavigationView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+        <Button
+            android:id="@+id/testFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Fragment" />
 
-            <Button
-                android:id="@+id/testFragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Test Fragment" />
-        </com.google.android.material.navigation.NavigationView>
+        <Button
+            android:id="@+id/help_btn"
+            android:layout_width="138dp"
+            android:layout_height="wrap_content"
+            android:text="Help" />
 
     </LinearLayout>
 
