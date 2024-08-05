@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMX Administrator Login</title>
+    <link rel="stylesheet" href="css/administrator_login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <div class="button-container">
+                <button type="button" onclick="login()">Login</button>
+                <button type="button" onclick="cancel()">Cancel</button>
+                <button type="button" onclick="register()">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/administrator_login.js"></script>
+</body>
+</html>
