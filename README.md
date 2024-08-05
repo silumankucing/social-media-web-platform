@@ -1,2 +1,0 @@
-# smx
-Social media experiment
