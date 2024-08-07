@@ -5,7 +5,12 @@ const bcrypt = require('bcrypt');
 const init = async () => {
     const server = Hapi.server({
         port: 3030,
-        host: 'localhost'
+        host: 'localhost',
+        routes: {
+            cors: {
+                origin: ['*'] // Allow all origins
+            }
+        }
     });
 
     // MySQL connection

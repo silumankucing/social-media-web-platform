@@ -1,54 +1,85 @@
+/* Reset margin and padding, box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for body */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    background-color: #f0f8ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
 }
 
+/* Header styling */
 h1 {
-    text-align: center;
+    margin-bottom: 20px;
+    color: #0056b3;
+    font-size: 2em;
 }
 
-form {
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-top: 10px;
-}
-
-input {
-    padding: 8px;
-    margin-top: 5px;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
+/* Table styling */
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+/* Table header styling */
+thead {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+thead th {
+    padding: 12px;
     text-align: left;
 }
 
-th {
-    background-color: #f2f2f2;
+/* Table body styling */
+tbody tr {
+    border-bottom: 1px solid #cccccc;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #e0f7ff;
+    transform: scale(1.02);
+}
+
+/* Table data cell styling */
+tbody td {
+    padding: 12px;
+}
+
+/* Add some spacing to the top of the table */
+table + button {
+    margin-top: 20px;
+}
+
+/* Logout button styling */
+button {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+button:hover {
+    background-color: #003d7a;
 }

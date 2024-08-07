@@ -3,21 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
     <title>Login</title>
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p id="message"></p>
-    </div>
-    <script src="js/login.js"></script>
+    <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function setCookie(name, value, minutes) {
+            let expires = "";
+            if (minutes) {
+                const date = new Date();
+                date.setTime(date.getTime() + (minutes * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                console.log('Sending login request with:', { username, password });
+                const response = await fetch(`http://localhost:3030/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
+                    method: 'GET'
+                });
+
+                console.log('Received response:', response);
+
+                const data = await response.json();
+
+                console.log('Parsed response data:', data);
+
+                if (response.ok) {
+                    // Set a cookie for 60 minutes
+                    setCookie('authToken', 'someTokenValue', 60);
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert(data.message || 'No username or password match');
+                }
+            } catch (error) {
+                console.error('Error occurred while logging in:', error);
+                alert('An error occurred while logging in');
+            }
+        });
+    </script>
 </body>
 </html>
