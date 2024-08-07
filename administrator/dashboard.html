@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <table id="dashboardTable">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Privilege</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function fetchDashboardData() {
+            const response = await fetch('http://localhost:3030/dashboard');
+            const data = await response.json();
+
+            const tableBody = document.querySelector('#dashboardTable tbody');
+            tableBody.innerHTML = '';
+
+            data.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.username}</td>
+                    <td>${user.full_name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.previledge}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        fetchDashboardData();
+    </script>
+</body>
+</html>
