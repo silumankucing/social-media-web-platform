@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redis Counter</title>
+</head>
+<body>
+    <h1>Click the button to increment the number:</h1>
+    <button id="increment-btn">Increment</button>
+    <p>Current count: <span id="count">0</span></p>
+
+    <script>
+        document.getElementById('increment-btn').addEventListener('click', async () => {
+            const response = await fetch('/increment', { method: 'POST' });
+            const data = await response.json();
+            document.getElementById('count').textContent = data.count;
+        });
+    </script>
+</body>
+</html>

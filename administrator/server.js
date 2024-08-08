@@ -109,6 +109,20 @@ const init = async () => {
         }
     });
 
+    server.route({
+        method: 'GET',
+        path: '/user',
+        handler: async (request, h) => {
+            try {
+                const [rows] = await db.execute('SELECT * FROM smx_user_table');
+                return { users: rows };
+            } catch (err) {
+                console.error('Dashboard error:', err);
+                return h.response({ message: 'Internal server error' }).code(500);
+            }
+        }
+    });
+
     await server.start();
     console.log('Server running on %s', server.info.uri);
 };

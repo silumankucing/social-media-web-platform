@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redis Text Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 20px;
+            margin: 5px;
+        }
+        #status {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="textInput" placeholder="Enter text here">
+    <button id="storeButton">Store Text</button>
+    <div id="status"></div>
+
+    <script>
+        async function storeText() {
+            const text = document.getElementById('textInput').value;
+            try {
+                const response = await fetch('/store', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text })
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+                const result = await response.json();
+                document.getElementById('status').innerText = `Stored text: ${result.text}`;
+            } catch (error) {
+                console.error('Error storing text:', error);
+                document.getElementById('status').innerText = 'Failed to store text.';
+            }
+        }
+
+        document.getElementById('storeButton').addEventListener('click', storeText);
+    </script>
+</body>
+</html>
